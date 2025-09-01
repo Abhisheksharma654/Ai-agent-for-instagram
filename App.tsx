@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from './components/Header';
 import UserInput from './components/UserInput';
@@ -40,11 +39,11 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <p className="text-center text-lg text-gray-400 mb-8">
+          <p className="text-center text-lg text-gray-600 dark:text-gray-400 mb-8">
             Describe your social media account, set your goals, and provide extra context to train our AI. We'll generate trending hashtags and growth strategies tailored for you.
           </p>
           <UserInput onGenerate={handleGenerate} isLoading={isLoading} />
@@ -58,7 +57,7 @@ const App: React.FC = () => {
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <HashtagIcon />
-                  <h2 className="text-3xl font-bold text-white">Trending Hashtags</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Trending Hashtags</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {suggestions.hashtags.map((h, index) => (
@@ -76,7 +75,7 @@ const App: React.FC = () => {
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <LightbulbIcon />
-                  <h2 className="text-3xl font-bold text-white">Growth Ideas</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Growth Ideas</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {suggestions.growthIdeas.map((idea, index) => (

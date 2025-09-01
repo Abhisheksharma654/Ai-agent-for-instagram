@@ -51,18 +51,18 @@ const UserInput: React.FC<UserInputProps> = ({ onGenerate, isLoading }) => {
     onGenerate(accountDescription, accountGoals, trainingData);
   };
   
-  const commonTextAreaClasses = "w-full p-4 bg-gray-800 border-2 border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300 placeholder-gray-500 resize-none";
-  const commonInputClasses = "w-full p-3 bg-gray-700 border-2 border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300 placeholder-gray-400";
+  const commonTextAreaClasses = "w-full p-4 bg-gray-100 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300 placeholder-gray-500 text-gray-900 dark:text-gray-100 resize-none";
+  const commonInputClasses = "w-full p-3 bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100";
 
   return (
-    <div className="bg-gray-800/50 backdrop-blur-lg p-8 rounded-xl border border-gray-700 shadow-2xl">
+    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-2xl">
       <form onSubmit={handleFetchAccount} className="mb-6">
-        <label htmlFor="instagram-handle" className="block text-lg font-semibold mb-2 text-cyan-300">
+        <label htmlFor="instagram-handle" className="block text-lg font-semibold mb-2 text-cyan-600 dark:text-cyan-300">
           Instagram Handle
         </label>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="relative w-full sm:w-auto flex-grow">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">@</span>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-400 text-lg">@</span>
             <input
               id="instagram-handle"
               type="text"
@@ -91,25 +91,25 @@ const UserInput: React.FC<UserInputProps> = ({ onGenerate, isLoading }) => {
       </form>
       
       {fetchedUser && (
-        <div className="my-6 p-4 bg-gray-900/50 border border-gray-700 rounded-lg flex items-center space-x-4 animate-fade-in">
+        <div className="my-6 p-4 bg-gray-100/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg flex items-center space-x-4 animate-fade-in">
             <img src={fetchedUser.imageUrl} alt="Profile" className="w-16 h-16 rounded-full border-2 border-cyan-500" />
             <div className="flex-grow">
-                <p className="font-bold text-lg text-white">{fetchedUser.name}</p>
-                <p className="text-gray-400">@{fetchedUser.handle}</p>
-                <p className="text-sm text-green-400 mt-1">Success! We've pre-filled the form below with simulated data.</p>
+                <p className="font-bold text-lg text-gray-900 dark:text-white">{fetchedUser.name}</p>
+                <p className="text-gray-500 dark:text-gray-400">@{fetchedUser.handle}</p>
+                <p className="text-sm text-green-500 dark:text-green-400 mt-1">Success! We've pre-filled the form below with simulated data.</p>
             </div>
         </div>
       )}
 
       <div className="my-6 flex items-center justify-center">
-          <span className="h-px bg-gray-600 flex-grow"></span>
-          <span className="px-4 text-gray-400 font-semibold">ACCOUNT DETAILS</span>
-          <span className="h-px bg-gray-600 flex-grow"></span>
+          <span className="h-px bg-gray-300 dark:bg-gray-600 flex-grow"></span>
+          <span className="px-4 text-gray-500 dark:text-gray-400 font-semibold">ACCOUNT DETAILS</span>
+          <span className="h-px bg-gray-300 dark:bg-gray-600 flex-grow"></span>
       </div>
 
       <form onSubmit={handleGenerate} className="space-y-6">
         <div>
-          <label htmlFor="account-description" className="block text-lg font-semibold mb-2 text-cyan-300">
+          <label htmlFor="account-description" className="block text-lg font-semibold mb-2 text-cyan-600 dark:text-cyan-300">
             Account Description
           </label>
           <textarea
@@ -124,7 +124,7 @@ const UserInput: React.FC<UserInputProps> = ({ onGenerate, isLoading }) => {
         </div>
 
         <div>
-          <label htmlFor="account-goals" className="block text-lg font-semibold mb-2 text-cyan-300">
+          <label htmlFor="account-goals" className="block text-lg font-semibold mb-2 text-cyan-600 dark:text-cyan-300">
             Account Goals
           </label>
           <textarea
@@ -138,7 +138,7 @@ const UserInput: React.FC<UserInputProps> = ({ onGenerate, isLoading }) => {
         </div>
 
         <div>
-          <label htmlFor="training-data" className="block text-lg font-semibold mb-2 text-cyan-300">
+          <label htmlFor="training-data" className="block text-lg font-semibold mb-2 text-cyan-600 dark:text-cyan-300">
             Train the Agent (Optional)
           </label>
           <textarea
@@ -151,7 +151,7 @@ const UserInput: React.FC<UserInputProps> = ({ onGenerate, isLoading }) => {
           />
         </div>
         
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+        {error && <p className="text-red-500 dark:text-red-400 text-sm">{error}</p>}
 
         <button
           type="submit"
