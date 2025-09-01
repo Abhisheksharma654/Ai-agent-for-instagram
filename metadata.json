@@ -1,0 +1,5 @@
+{
+  "name": "Social Growth AI Agent",
+  "description": "An AI agent that suggests trending hashtags and provides growth strategies for your social media accounts. Train the agent with custom data for personalized results.",
+  "requestFramePermissions": []
+}
